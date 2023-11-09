@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="mystyle.css">
+<title>Kalkulator</title>
+</head>
+<body>
+    <div id="calculator">
+     
+        <input type="text" id="display" disabled>
+ 
+        <button onclick="input('1')">1</button>
+        <button onclick="input('2')">2</button>
+        <button onclick="input('3')">3</button>
+        <button onclick="input('+')">+</button><br>
+        <button onclick="input('4')">4</button>
+        <button onclick="input('5')">5</button>
+        <button onclick="input('6')">6</button>
+        <button onclick="input('-')">-</button><br>
+        <button onclick="input('7')">7</button>
+        <button onclick="input('8')">8</button>
+        <button onclick="input('9')">9</button>
+        <button onclick="input('*')">*</button><br>
+        <button onclick="calculate()">=</button>
+		<button onclick="input('0')">0</button>
+        <button onclick="input('/')">/</button>
+		  <button onclick="clearDisplay()">C</button>
+    </div>
+	<script>
+    function input(value) {
+        var display = document.getElementById('display');
+        var lastChar = display.value.slice(-1);
+ 
+        if ('+-*/'.includes(value) && '+-*/'.includes(lastChar)) {
+          
+        } else {
+            display.value += value;
+        }
+    }
+ 
+    function calculate() {
+        try {
+            document.getElementById('display').value = eval(document.getElementById('display').value);
+        } catch (e) {
+            document.getElementById('display').value = 'Error';
+        }
+    }
+ 
+    function clearDisplay() {
+        document.getElementById('display').value = '';
+    }
+</script>
+
+</body>
+</html>
